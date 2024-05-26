@@ -63,7 +63,9 @@ export class ListCoursesComponent {
 
   getAllCourses(): void {
     let role = this.loginService.userType();
-    if (role)
+    if (!role) {
+      role= 'USER'
+    }
       this.courseService.getAllCourses(role).subscribe(
         courses => {
           this.courses = courses;
