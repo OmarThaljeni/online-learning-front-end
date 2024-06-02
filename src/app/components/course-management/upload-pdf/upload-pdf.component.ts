@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoUploadService } from '../../../services/course-service/file-video-course';
+import { LoginService } from '../../../services/security-service/login.service';
 
 @Component({
   selector: 'app-upload-pdf',
@@ -24,7 +25,7 @@ export class UploadPdfComponent {
   pdfVisible: boolean = false;
   videoVisible: boolean = false;
 
-  constructor(private sanitizer: DomSanitizer, private videoUploadService: VideoUploadService) { }
+  constructor(public loginService: LoginService,private sanitizer: DomSanitizer, private videoUploadService: VideoUploadService) { }
 
   ngOnInit(): void {
     this.loadFileNames();
